@@ -1,14 +1,12 @@
 <?php
 ob_start();
 
-// Set CORS headers to allow the frontend to access the response
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: http://localhost:5173'); // Match your frontend origin
-header('Access-Control-Allow-Methods: GET, DELETE, OPTIONS');
+header('Access-Control-Allow-Origin: http://localhost:5173');
+header('Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
-header('Access-Control-Allow-Credentials: true'); // Allow cookies to be sent
+header('Access-Control-Allow-Credentials: true');
 
-// Handle preflight OPTIONS request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit;
@@ -16,46 +14,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 include 'db.php';
 
-$request_time = date('Y-m-d H:i:s');
-
-// Debug request, headers, and cookies
-error_log("[$request_time] Request: Method={$_SERVER['REQUEST_METHOD']}, URI={$_SERVER['REQUEST_URI']}");
-error_log("[$request_time] Headers: " . json_encode(getallheaders()));
-error_log("[$request_time] Cookies received: " . json_encode($_COOKIE));
-
 try {
-    // Check if userEmail cookie exists and is not empty
-    if (!isset($_COOKIE['userEmail'])) {
-        error_log("[$request_time] Cookie 'userEmail' not set.");
-        throw new Exception('Unauthorized: Please log in (cookie not set).');
+    if (!isset($_COOKIE['userEmail']) || empty(trim($_COOKIE['userEmail']))) {
+        throw new Exception('Unauthorized: Please log in.');
     }
 
-    $email = trim($_COOKIE['userEmail']);
-    if (empty($email)) {
-        error_log("[$request_time] Cookie 'userEmail' is empty.");
-        throw new Exception('Unauthorized: Please log in (cookie empty).');
-    }
-
-    error_log("[$request_time] Received userEmail: $email");
-
-    // Validate email format
+    $email = $conn->real_escape_string(trim($_COOKIE['userEmail']));
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        error_log("[$request_time] Invalid email format: $email");
         throw new Exception('Unauthorized: Invalid email format.');
     }
 
-    // Escape the email for safe database query
-    $email = $conn->real_escape_string($email);
-
-    // Fetch user details (id, first_name, last_name, email)
-    $sql = "SELECT id, first_name, last_name, email FROM users WHERE email = '$email'";
+    $sql = "SELECT id, first_name, last_name, email, profile_image FROM users WHERE email = '$email'";
     $result = $conn->query($sql);
-    if (!$result) {
-        error_log("[$request_time] Database query failed: " . $conn->error);
-        throw new Exception('Database error: Unable to verify user.');
-    }
-    if ($result->num_rows === 0) {
-        error_log("[$request_time] Email not found in database: $email");
+    if (!$result || $result->num_rows === 0) {
         throw new Exception('Unauthorized: User not found.');
     }
 
@@ -64,19 +35,71 @@ try {
     $user_data = [
         'first_name' => $user['first_name'],
         'last_name' => $user['last_name'],
-        'email' => $user['email']
+        'email' => $user['email'],
+        'profile_image' => $user['profile_image'] ? 'http://localhost/my-app-api/uploads/' . $user['profile_image'] : null
     ];
-    error_log("[$request_time] User logged in: email=$email, user_id=$user_id");
 
-    // Handle DELETE request for clearing trip history
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Handle profile image upload
+        if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] === UPLOAD_ERR_OK) {
+            $file = $_FILES['profile_image'];
+            $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
+            $max_size = 5 * 1024 * 1024; // 5MB
+
+            // Validate file type and size
+            if (!in_array($file['type'], $allowed_types)) {
+                throw new Exception('Invalid file type. Only JPEG, PNG, and GIF are allowed.');
+            }
+            if ($file['size'] > $max_size) {
+                throw new Exception('File size exceeds 5MB limit.');
+            }
+
+            // Create uploads directory if it doesn't exist
+            $upload_dir = 'uploads/';
+            if (!is_dir($upload_dir)) {
+                mkdir($upload_dir, 0755, true);
+            }
+
+            // Generate unique filename
+            $file_ext = pathinfo($file['name'], PATHINFO_EXTENSION);
+            $new_filename = 'user_' . $user_id . '_' . time() . '.' . $file_ext;
+            $destination = $upload_dir . $new_filename;
+
+            // Move uploaded file
+            if (!move_uploaded_file($file['tmp_name'], $destination)) {
+                throw new Exception('Failed to upload image.');
+            }
+
+            // Delete old profile image if it exists
+            if ($user['profile_image'] && file_exists($upload_dir . $user['profile_image'])) {
+                unlink($upload_dir . $user['profile_image']);
+            }
+
+            // Update database with new image path
+            $sql = "UPDATE users SET profile_image = '$new_filename' WHERE id = '$user_id'";
+            if (!$conn->query($sql)) {
+                throw new Exception('Failed to update profile image: ' . $conn->error);
+            }
+
+            echo json_encode([
+                'success' => true,
+                'message' => 'Profile image updated successfully.',
+                'profile_image' => 'http://localhost/my-app-api/uploads/' . $new_filename
+            ]);
+            $conn->close();
+            ob_end_flush();
+            exit;
+        } else {
+            throw new Exception('No file uploaded or upload error.');
+        }
+    }
+
     if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         $sql = "DELETE FROM trips WHERE user_id = '$user_id'";
-        if ($conn->query($sql) !== TRUE) {
-            error_log("[$request_time] Failed to delete trips: " . $conn->error);
+        if (!$conn->query($sql)) {
             throw new Exception('Error deleting trip history: ' . $conn->error);
         }
 
-        error_log("[$request_time] All trips deleted for user_id=$user_id");
         echo json_encode([
             'success' => true,
             'message' => 'Trip history cleared successfully.'
@@ -86,19 +109,16 @@ try {
         exit;
     }
 
-    // Handle GET request for fetching user data and trips
     if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
         throw new Exception('Method not allowed.');
     }
 
-    // Fetch trips for the user
     $sql = "SELECT id, created_at, city, country_region, activity, info_trip 
             FROM trips 
             WHERE user_id = '$user_id' 
             ORDER BY created_at DESC";
     $result = $conn->query($sql);
     if (!$result) {
-        error_log("[$request_time] Database query failed: " . $conn->error);
         throw new Exception('Database error: Unable to fetch trips.');
     }
 
@@ -109,11 +129,10 @@ try {
             'date' => $row['created_at'],
             'destination' => $row['city'] . ', ' . $row['country_region'],
             'activity' => $row['activity'],
-            'info_trip' => $row['info_trip'] ?: 'N/A' // Handle NULL info_trip
+            'info_trip' => $row['info_trip'] ?: 'N/A'
         ];
     }
 
-    error_log("[$request_time] Fetched " . count($trips) . " trips for user_id=$user_id");
     echo json_encode([
         'success' => true,
         'user' => $user_data,
@@ -123,7 +142,6 @@ try {
     $conn->close();
 
 } catch (Exception $e) {
-    error_log("[$request_time] Error: " . $e->getMessage());
     http_response_code(400);
     echo json_encode([
         'success' => false,

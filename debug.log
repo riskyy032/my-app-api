@@ -13,3 +13,103 @@ Error: Invalid JSON input
 Script started: 2025-05-19 08:17:26
 Input: 
 Error: Invalid JSON input
+2025-05-23 16:16:54 - TravelLogs.php script started
+[2025-05-23 16:16:54] Request: Method=POST, URI=/my-app-api/TravelLogs.php
+[2025-05-23 16:16:54] Headers: {"Host":"localhost","Connection":"keep-alive","Content-Length":"87369","sec-ch-ua-platform":"\"Windows\"","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36","sec-ch-ua":"\"Chromium\";v=\"136\", \"Brave\";v=\"136\", \"Not.A\/Brand\";v=\"99\"","Content-Type":"multipart\/form-data; boundary=----WebKitFormBoundaryDVvzOcPLRrbhpjuY","sec-ch-ua-mobile":"?0","Accept":"*\/*","Sec-GPC":"1","Accept-Language":"en-US,en;q=0.9","Origin":"http:\/\/localhost:5173","Sec-Fetch-Site":"same-site","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost:5173\/","Accept-Encoding":"gzip, deflate, br, zstd","Cookie":"userEmail=An@gmail.com"}
+[2025-05-23 16:16:54] Cookies received: {"userEmail":"An@gmail.com"}
+[2025-05-23 16:16:54] POST data: {"title":"asdasd","details":"asdasdasd"}
+[2025-05-23 16:16:54] FILES data: {"image":{"name":"file-20201126-15-1h1jzzy.avif","full_path":"file-20201126-15-1h1jzzy.avif","type":"image\/avif","tmp_name":"C:\\xampp\\tmp\\php4B65.tmp","error":0,"size":86964}}
+[2025-05-23 16:16:54] db.php included successfully
+[2025-05-23 16:16:54] Received userEmail: An@gmail.com
+[2025-05-23 16:16:54] User logged in: email=An@gmail.com, user_id=3
+[2025-05-23 16:16:54] Upload directory does not exist: uploads/
+[2025-05-23 16:16:54] Error: Upload directory does not exist.
+[2025-05-23 16:16:54] Response sent: {"success":false,"error":"Upload directory does not exist."}
+[2025-05-23 16:16:54] TravelLogs.php script completed
+2025-05-23 16:25:36 - TravelLogs.php script started
+[2025-05-23 16:25:36] Request: Method=POST, URI=/my-app-api/TravelLogs.php
+[2025-05-23 16:25:36] Headers: {"Host":"localhost","Connection":"keep-alive","Content-Length":"87369","sec-ch-ua-platform":"\"Windows\"","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36","sec-ch-ua":"\"Chromium\";v=\"136\", \"Brave\";v=\"136\", \"Not.A\/Brand\";v=\"99\"","Content-Type":"multipart\/form-data; boundary=----WebKitFormBoundary3etnxWCtYPYHYDQP","sec-ch-ua-mobile":"?0","Accept":"*\/*","Sec-GPC":"1","Accept-Language":"en-US,en;q=0.9","Origin":"http:\/\/localhost:5173","Sec-Fetch-Site":"same-site","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost:5173\/","Accept-Encoding":"gzip, deflate, br, zstd","Cookie":"userEmail=An@gmail.com"}
+[2025-05-23 16:25:36] Cookies received: {"userEmail":"An@gmail.com"}
+[2025-05-23 16:25:36] POST data: {"title":"asdasd","details":"asdasdasd"}
+[2025-05-23 16:25:36] FILES data: {"image":{"name":"file-20201126-15-1h1jzzy.avif","full_path":"file-20201126-15-1h1jzzy.avif","type":"image\/avif","tmp_name":"C:\\xampp\\tmp\\php40FF.tmp","error":0,"size":86964}}
+[2025-05-23 16:25:36] db.php included successfully
+[2025-05-23 16:25:36] Received userEmail: An@gmail.com
+[2025-05-23 16:25:36] User logged in: email=An@gmail.com, user_id=3
+[2025-05-23 16:25:36] Travel log saved for user_id=3, title=asdasd
+[2025-05-23 16:25:36] Response sent: {"success":true,"message":"Travel log saved successfully."}
+[2025-05-23 16:25:36] TravelLogs.php script completed
+2025-05-23 16:26:41 - TravelLogs.php script started
+[2025-05-23 16:26:41] Request: Method=POST, URI=/my-app-api/TravelLogs.php
+[2025-05-23 16:26:41] Headers: {"Host":"localhost","Connection":"keep-alive","Content-Length":"4109","sec-ch-ua-platform":"\"Windows\"","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36","sec-ch-ua":"\"Chromium\";v=\"136\", \"Brave\";v=\"136\", \"Not.A\/Brand\";v=\"99\"","Content-Type":"multipart\/form-data; boundary=----WebKitFormBoundaryDvEAqdyIy5pyLxlL","sec-ch-ua-mobile":"?0","Accept":"*\/*","Sec-GPC":"1","Accept-Language":"en-US,en;q=0.9","Origin":"http:\/\/localhost:5173","Sec-Fetch-Site":"same-site","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost:5173\/","Accept-Encoding":"gzip, deflate, br, zstd","Cookie":"userEmail=An@gmail.com"}
+[2025-05-23 16:26:41] Cookies received: {"userEmail":"An@gmail.com"}
+[2025-05-23 16:26:41] POST data: {"title":"ss","details":"ddd"}
+[2025-05-23 16:26:41] FILES data: {"image":{"name":"download1.jpg","full_path":"download1.jpg","type":"image\/jpeg","tmp_name":"C:\\xampp\\tmp\\php3F46.tmp","error":0,"size":3730}}
+[2025-05-23 16:26:41] db.php included successfully
+[2025-05-23 16:26:41] Received userEmail: An@gmail.com
+[2025-05-23 16:26:41] User logged in: email=An@gmail.com, user_id=3
+[2025-05-23 16:26:41] Travel log saved for user_id=3, title=ss
+[2025-05-23 16:26:41] Response sent: {"success":true,"message":"Travel log saved successfully."}
+[2025-05-23 16:26:41] TravelLogs.php script completed
+2025-05-23 16:37:40 - TravelLogs.php script started
+[2025-05-23 16:37:40] Request: Method=GET, URI=/my-app-api/TravelLogs.php
+[2025-05-23 16:37:40] Headers: {"Host":"localhost","Connection":"keep-alive","sec-ch-ua-platform":"\"Windows\"","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36","sec-ch-ua":"\"Chromium\";v=\"136\", \"Brave\";v=\"136\", \"Not.A\/Brand\";v=\"99\"","sec-ch-ua-mobile":"?0","Accept":"*\/*","Sec-GPC":"1","Accept-Language":"en-US,en;q=0.9","Origin":"http:\/\/localhost:5174","Sec-Fetch-Site":"same-site","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost:5174\/","Accept-Encoding":"gzip, deflate, br, zstd","Cookie":"userEmail=An@gmail.com"}
+[2025-05-23 16:37:40] Cookies received: {"userEmail":"An@gmail.com"}
+[2025-05-23 16:37:40] Received userEmail: An@gmail.com
+[2025-05-23 16:37:40] db.php included successfully
+[2025-05-23 16:37:40] User logged in: email=An@gmail.com, user_id=3
+[2025-05-23 16:37:40] Response sent: {"success":true,"logs":[{"id":"2","title":"ss","details":"ddd","image_path":[],"created_at":"2025-05-23 22:26:41"},{"id":"1","title":"asdasd","details":"asdasdasd","image_path":[],"created_at":"2025-05-23 22:25:36"}]}
+[2025-05-23 16:37:40] TravelLogs.php script completed
+2025-05-23 16:37:40 - TravelLogs.php script started
+[2025-05-23 16:37:40] Request: Method=GET, URI=/my-app-api/TravelLogs.php
+[2025-05-23 16:37:40] Headers: {"Host":"localhost","Connection":"keep-alive","sec-ch-ua-platform":"\"Windows\"","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36","sec-ch-ua":"\"Chromium\";v=\"136\", \"Brave\";v=\"136\", \"Not.A\/Brand\";v=\"99\"","sec-ch-ua-mobile":"?0","Accept":"*\/*","Sec-GPC":"1","Accept-Language":"en-US,en;q=0.9","Origin":"http:\/\/localhost:5174","Sec-Fetch-Site":"same-site","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost:5174\/","Accept-Encoding":"gzip, deflate, br, zstd","Cookie":"userEmail=An@gmail.com"}
+[2025-05-23 16:37:40] Cookies received: {"userEmail":"An@gmail.com"}
+[2025-05-23 16:37:40] Received userEmail: An@gmail.com
+[2025-05-23 16:37:40] db.php included successfully
+[2025-05-23 16:37:40] User logged in: email=An@gmail.com, user_id=3
+[2025-05-23 16:37:40] Response sent: {"success":true,"logs":[{"id":"2","title":"ss","details":"ddd","image_path":[],"created_at":"2025-05-23 22:26:41"},{"id":"1","title":"asdasd","details":"asdasdasd","image_path":[],"created_at":"2025-05-23 22:25:36"}]}
+[2025-05-23 16:37:40] TravelLogs.php script completed
+2025-05-23 16:39:48 - TravelLogs.php script started
+[2025-05-23 16:39:48] Request: Method=POST, URI=/my-app-api/TravelLogs.php
+[2025-05-23 16:39:48] Headers: {"Host":"localhost","Connection":"keep-alive","Content-Length":"4112","sec-ch-ua-platform":"\"Windows\"","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36","sec-ch-ua":"\"Chromium\";v=\"136\", \"Brave\";v=\"136\", \"Not.A\/Brand\";v=\"99\"","Content-Type":"multipart\/form-data; boundary=----WebKitFormBoundaryLAWojB3jIXtaBbAA","sec-ch-ua-mobile":"?0","Accept":"*\/*","Sec-GPC":"1","Accept-Language":"en-US,en;q=0.9","Origin":"http:\/\/localhost:5173","Sec-Fetch-Site":"same-site","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost:5173\/","Accept-Encoding":"gzip, deflate, br, zstd","Cookie":"userEmail=An@gmail.com"}
+[2025-05-23 16:39:48] Cookies received: {"userEmail":"An@gmail.com"}
+[2025-05-23 16:39:48] Received userEmail: An@gmail.com
+[2025-05-23 16:39:48] db.php included successfully
+[2025-05-23 16:39:48] User logged in: email=An@gmail.com, user_id=3
+[2025-05-23 16:39:48] Travel log saved for user_id=3, title=wee
+[2025-05-23 16:39:48] Response sent: {"success":true,"message":"Travel log saved successfully."}
+[2025-05-23 16:39:48] TravelLogs.php script completed
+2025-05-23 16:41:15 - TravelLogs.php script started
+[2025-05-23 16:41:15] Request: Method=POST, URI=/my-app-api/TravelLogs.php
+[2025-05-23 16:41:15] Headers: {"Host":"localhost","Connection":"keep-alive","Content-Length":"7215","sec-ch-ua-platform":"\"Windows\"","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36","sec-ch-ua":"\"Chromium\";v=\"136\", \"Brave\";v=\"136\", \"Not.A\/Brand\";v=\"99\"","Content-Type":"multipart\/form-data; boundary=----WebKitFormBoundarycJsEG1TztTq4w5d7","sec-ch-ua-mobile":"?0","Accept":"*\/*","Sec-GPC":"1","Accept-Language":"en-US,en;q=0.9","Origin":"http:\/\/localhost:5173","Sec-Fetch-Site":"same-site","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost:5173\/","Accept-Encoding":"gzip, deflate, br, zstd","Cookie":"userEmail=An@gmail.com"}
+[2025-05-23 16:41:15] Cookies received: {"userEmail":"An@gmail.com"}
+[2025-05-23 16:41:15] Received userEmail: An@gmail.com
+[2025-05-23 16:41:15] db.php included successfully
+[2025-05-23 16:41:15] User logged in: email=An@gmail.com, user_id=3
+[2025-05-23 16:41:15] Travel log saved for user_id=3, title=asdasd
+[2025-05-23 16:41:15] Response sent: {"success":true,"message":"Travel log saved successfully."}
+[2025-05-23 16:41:15] TravelLogs.php script completed
+2025-05-23 16:41:44 - TravelLogs.php script started
+[2025-05-23 16:41:44] Request: Method=POST, URI=/my-app-api/TravelLogs.php
+[2025-05-23 16:41:44] Headers: {"Host":"localhost","Connection":"keep-alive","Content-Length":"68239","sec-ch-ua-platform":"\"Windows\"","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36","sec-ch-ua":"\"Chromium\";v=\"136\", \"Brave\";v=\"136\", \"Not.A\/Brand\";v=\"99\"","Content-Type":"multipart\/form-data; boundary=----WebKitFormBoundaryLHurB96b0p5HcGCk","sec-ch-ua-mobile":"?0","Accept":"*\/*","Sec-GPC":"1","Accept-Language":"en-US,en;q=0.9","Origin":"http:\/\/localhost:5173","Sec-Fetch-Site":"same-site","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost:5173\/","Accept-Encoding":"gzip, deflate, br, zstd","Cookie":"userEmail=An@gmail.com"}
+[2025-05-23 16:41:44] Cookies received: {"userEmail":"An@gmail.com"}
+[2025-05-23 16:41:44] Received userEmail: An@gmail.com
+[2025-05-23 16:41:44] db.php included successfully
+[2025-05-23 16:41:44] User logged in: email=An@gmail.com, user_id=3
+[2025-05-23 16:41:44] Travel log saved for user_id=3, title=asdasd
+[2025-05-23 16:41:44] Response sent: {"success":true,"message":"Travel log saved successfully."}
+[2025-05-23 16:41:44] TravelLogs.php script completed
+2025-05-23 16:42:41 - TravelLogs.php script started
+[2025-05-23 16:42:41] Request: Method=POST, URI=/my-app-api/TravelLogs.php
+[2025-05-23 16:42:41] Headers: {"Host":"localhost","Connection":"keep-alive","Content-Length":"1814176","sec-ch-ua-platform":"\"Windows\"","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36","sec-ch-ua":"\"Chromium\";v=\"136\", \"Brave\";v=\"136\", \"Not.A\/Brand\";v=\"99\"","Content-Type":"multipart\/form-data; boundary=----WebKitFormBoundaryHer1CXSFVGRMjCas","sec-ch-ua-mobile":"?0","Accept":"*\/*","Sec-GPC":"1","Accept-Language":"en-US,en;q=0.9","Origin":"http:\/\/localhost:5173","Sec-Fetch-Site":"same-site","Sec-Fetch-Mode":"cors","Sec-Fetch-Dest":"empty","Referer":"http:\/\/localhost:5173\/","Accept-Encoding":"gzip, deflate, br, zstd","Cookie":"userEmail=An@gmail.com"}
+[2025-05-23 16:42:41] Cookies received: {"userEmail":"An@gmail.com"}
+[2025-05-23 16:42:41] POST data: {"title":"asdasd","details":"asdd"}
+[2025-05-23 16:42:41] FILES data: {"image":{"name":"cyberpunk-girl-sword-sci-fi-4k-wallpaper-uhdpaper.com-627@0@j.jpg","full_path":"cyberpunk-girl-sword-sci-fi-4k-wallpaper-uhdpaper.com-627@0@j.jpg","type":"image\/jpeg","tmp_name":"C:\\xampp\\tmp\\phpE5B8.tmp","error":0,"size":1813740}}
+[2025-05-23 16:42:41] db.php included successfully
+[2025-05-23 16:42:41] Received userEmail: An@gmail.com
+[2025-05-23 16:42:41] User logged in: email=An@gmail.com, user_id=3
+[2025-05-23 16:42:41] Travel log saved for user_id=3, title=asdasd
+[2025-05-23 16:42:41] Response sent: {"success":true,"message":"Travel log saved successfully."}
+[2025-05-23 16:42:41] TravelLogs.php script completed
+2025-05-23 16:44:41 - TravelLogs.php script started
+2025-05-23 16:44:41 - Response sent: {"success":true,"message":"Travel log saved successfully."}
+2025-05-23 16:44:41 - TravelLogs.php script completed
