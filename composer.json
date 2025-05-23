@@ -1,0 +1,13 @@
+{
+    "name": "ian/my-app-api",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Idris",
+            "email": "ianleraldd@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.10"
+    }
+}
